@@ -2,10 +2,10 @@
 resource "aws_route_table" "public-route-table" {
   vpc_id = aws_vpc.main.id
 
-  route {
-    cidr_block = "10.0.1.0/24"
-    gateway_id = aws_internet_gateway.example.id
-  }
+#   route {
+#     cidr_block = "10.0.1.0/24"
+#     gateway_id = aws_internet_gateway.example.id
+#   }
 
   for_each = var.public_subnets
   tags = merge(
@@ -26,10 +26,10 @@ resource "aws_route_table_association" "public-association" {
 resource "aws_route_table" "private_route_table" {
   vpc_id = aws_vpc.main.id
 
-  route {
-    cidr_block = "10.0.1.0/24"
-    gateway_id = aws_internet_gateway.example.id
-  }
+#   route {
+#     cidr_block = "10.0.1.0/24"
+#     gateway_id = aws_internet_gateway.example.id
+#   }
 
   for_each = var.private_subnets
   tags = merge(
